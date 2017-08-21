@@ -2,7 +2,7 @@ import TalkService from './common/talk.service';
 import Layout from './layout/index'
 import SpeakerList from './speakers/list/index'
 import SessionList from './sessions/list/index'
-
+import "bootstrap/dist/css/bootstrap.css"
 let service = new TalkService();
 //crée une instance de speakerlist avec l'instance de Talkservice
 let speaker = new SpeakerList(service);
