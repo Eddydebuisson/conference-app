@@ -34,7 +34,41 @@ class TalkService {
 
         });
     }
+    findSessionById(id){
+                return new Promise( (resolve, reject) => {
+        
+            const req = new XMLHttpRequest();
+            req.open('GET', 'http://localhost:3000/sessions?id=', true);
+            req.onreadystatechange = (aEvt) => {
+                if (req.readyState == 4) {
+                    if(req.status == 200)
+                        resolve(JSON.parse(req.responseText)); // corps de la réponse
+                    else
+                        throw "Erreur pendant le chargement de la page";
+                    }
+            };
+            req.send(null);
 
+        });
+
+    }
+      findSpeakersById(id){
+        return new Promise( (resolve, reject) => {
+        
+            const req = new XMLHttpRequest();
+            req.open('GET', 'http://localhost:3000/speakers?id=', true);
+            req.onreadystatechange = (aEvt) => {
+                if (req.readyState == 4) {
+                    if(req.status == 200)
+                        resolve(JSON.parse(req.responseText)); // corps de la réponse
+                    else
+                        throw "Erreur pendant le chargement de la page";
+                    }
+            };
+            req.send(null);
+
+        });
+    }
 }
 
 export default TalkService ;

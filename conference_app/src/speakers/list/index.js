@@ -9,7 +9,7 @@ class SpeakerList {
     render(idView){
         let speakers = this.service.findAllSpeakers().then(reqspeaker => {
 
-        let speak = reqspeaker.map(speaker => speaker.firstname);
+        let speak = "<ul>" + reqspeaker.map(speaker => "<li><a href='/#speakers-list'>" + speaker.firstname +"</a></li>").join("") + "</ul>";
 
         document.getElementById(idView).innerHTML = speak;
         })
