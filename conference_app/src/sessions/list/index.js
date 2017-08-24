@@ -7,19 +7,19 @@ class SessionList {
     }
 
     render(idView){
-        let speakers = this.service.findAllSessions().then(reqsSession => {
+        let sessions = this.service.findAllSessions().then(reqsSession => {
 
-        let titles = "<ul>" + reqsSession.map(sessions => "<li><a href='#sessions-list>" + sessions.title + "</a></li>").join("") +"</ul>";
+        let titles = "<ul>" + reqsSession.map(sessions => `<li><a href="#sessions-list?id=${sessions.id}">` + sessions.title + "</a></li>").join("") +"</ul>";
 
         document.getElementById(idView).innerHTML = titles;
         })
     }
 
     renderSessionById(idView,id){
-        let speakers = this.service.findSessionById(id).then(reqsSession => {
+        let sessions = this.service.findSessionById(id).then(reqsSession => {
 
-        let titles = "<h2>" + reqsSession.map(sessions => sessions.title) +"</h2>";
-
+        let titles =  reqsSession.map(sessions =>"<h2>" +sessions.title+"</h2><p>" +sessions.desc +"</p>" +sessions.speakers.map( s => "<a href='#speakers-list?id="+s+"'> Présentateur :"+ s +" </a></br>").join('')+  " <div class='row'> <a class='btn btn-warning'>Mes Notes</a>   </div>").join("") ;
+        
         document.getElementById(idView).innerHTML = titles;
         })
 

@@ -20,13 +20,19 @@ layout.render();
 
 
 var router = () => {
+    let parent = location.hash.split("=");
+
+
     if (location.hash == '#speakers-list') {
-        // insere dans la balise main-view la liste de prénom
         speaker.render('main-view');
     } else if (location.hash == '#sessions-list') {
         sessions.render('main-view');
-    } else {
-        
+    } else if(parent[0]== '#sessions-list?id'){
+       sessions.renderSessionById('main-view',parent[1])
+    }else if(parent[0] == '#speakers-list?id'){
+        speaker.renderSpeakersById('main-view',parent[1])
+    }else{
+
     }
 }
 window.addEventListener('load', () => {

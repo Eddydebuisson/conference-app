@@ -38,7 +38,7 @@ class TalkService {
                 return new Promise( (resolve, reject) => {
         
             const req = new XMLHttpRequest();
-            req.open('GET', 'http://localhost:3000/sessions?id=', true);
+            req.open('GET', 'http://localhost:3000/sessions?id='+id, true);
             req.onreadystatechange = (aEvt) => {
                 if (req.readyState == 4) {
                     if(req.status == 200)
@@ -56,7 +56,7 @@ class TalkService {
         return new Promise( (resolve, reject) => {
         
             const req = new XMLHttpRequest();
-            req.open('GET', 'http://localhost:3000/speakers?id=', true);
+            req.open('GET', 'http://localhost:3000/speakers?id='+id, true);
             req.onreadystatechange = (aEvt) => {
                 if (req.readyState == 4) {
                     if(req.status == 200)
