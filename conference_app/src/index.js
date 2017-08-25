@@ -27,11 +27,11 @@ var router = () => {
         speaker.render('main-view');
     } else if (location.hash == '#sessions-list') {
         sessions.render('main-view');
-    } else if(parent[0]== '#sessions-list?id'){
-       sessions.renderSessionById('main-view',parent[1])
-    }else if(parent[0] == '#speakers-list?id'){
-        speaker.renderSpeakersById('main-view',parent[1])
-    }else{
+    } else if (parent[0] == '#sessions-list?id') {
+        sessions.renderSessionById('main-view', parent[1])
+    } else if (parent[0] == '#speakers-list?id') {
+        speaker.renderSpeakersById('main-view', parent[1])
+    } else {
 
     }
 }
